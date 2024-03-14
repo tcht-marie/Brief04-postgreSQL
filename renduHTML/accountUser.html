@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>SELECT * FROM accountUser LIMIT 10;</h3>
+    <table border="1">
+      <tr>
+        <th align="center">id</th>
+        <th align="center">name</th>
+        <th align="center">email</th>
+        <th align="center">phone</th>
+        <th align="center">birth</th>
+      </tr>
+      <tr valign="top">
+        <td align="right">2</td>
+        <td align="left">Mattalic Longhole</td>
+        <td align="left">MattalicLonghole@armyspy.com</td>
+        <td align="left">717-715-1156</td>
+        <td align="left">7/5/1971</td>
+      </tr>
+      <tr valign="top">
+        <td align="right">3</td>
+        <td align="left">Bosco Puddifoot</td>
+        <td align="left">BoscoPuddifoot@cuvox.de</td>
+        <td align="left">917-234-2498</td>
+        <td align="left">6/1/1952</td>
+      </tr>
+      <tr valign="top">
+        <td align="right">4</td>
+        <td align="left">Cotman Bolger</td>
+        <td align="left">CotmanBolger@teleworm.us</td>
+        <td align="left">312-988-5895</td>
+        <td align="left">1/20/1998</td>
+      </tr>
+      <tr valign="top">
+        <td align="right">5</td>
+        <td align="left">Gorbadoc Burrows</td>
+        <td align="left">GorbadocBurrows@teleworm.us</td>
+        <td align="left">318-997-6419</td>
+        <td align="left">6/7/1961</td>
+      </tr>
+      <tr valign="top">
+        <td align="right">6</td>
+        <td align="left">Balbo Brandagamba</td>
+        <td align="left">BalboBrandagamba@superrito.com</td>
+        <td align="left">540-220-5016</td>
+        <td align="left">3/28/1988</td>
+      </tr>
+      <tr valign="top">
+        <td align="right">7</td>
+        <td align="left">Savanna Galbassi</td>
+        <td align="left">SavannaGalbassi@cuvox.de</td>
+        <td align="left">318-448-2356</td>
+        <td align="left">11/4/1989</td>
+      </tr>
+      <tr valign="top">
+        <td align="right">8</td>
+        <td align="left">Amalda Sandyman</td>
+        <td align="left">AmaldaSandyman@gustr.com</td>
+        <td align="left">337-369-0425</td>
+        <td align="left">3/4/1955</td>
+      </tr>
+      <tr valign="top">
+        <td align="right">9</td>
+        <td align="left">Pamphila Took-Took</td>
+        <td align="left">PamphilaTook-Took@dayrep.com</td>
+        <td align="left">940-393-5683</td>
+        <td align="left">7/21/1967</td>
+      </tr>
+      <tr valign="top">
+        <td align="right">10</td>
+        <td align="left">Posco Twofoot</td>
+        <td align="left">PoscoTwofoot@cuvox.de</td>
+        <td align="left">505-907-0248</td>
+        <td align="left">4/7/1998</td>
+      </tr>
+      <tr valign="top">
+        <td align="right">11</td>
+        <td align="left">Marmaduke Sackville-Baggins</td>
+        <td align="left">MarmadukeSackville-Baggins@jourrapide.com</td>
+        <td align="left">931-507-0236</td>
+        <td align="left">12/19/1950</td>
+      </tr>
+    </table>
+    <p>(10 lignes)<br /></p>
+    <h3>SELECT * FROM accountUser WHERE id = 1;</h3>
+    <table border="1">
+      <tr>
+        <th align="center">id</th>
+        <th align="center">name</th>
+        <th align="center">email</th>
+        <th align="center">phone</th>
+        <th align="center">birth</th>
+      </tr>
+      <tr valign="top">
+        <td align="right">1</td>
+        <td align="left">Frodon Sacquet</td>
+        <td align="left">frodonsacquet@mordor.com</td>
+        <td align="left">505-177-6979</td>
+        <td align="left">7/29/1976</td>
+      </tr>
+    </table>
+    <p>(1 ligne)<br /></p>
+    <h3>SELECT * FROM accountUser WHERE name LIKE '%Took%';</h3>
+    <table border="1">
+      <tr>
+        <th align="center">id</th>
+        <th align="center">name</th>
+        <th align="center">email</th>
+        <th align="center">phone</th>
+        <th align="center">birth</th>
+      </tr>
+      <tr valign="top">
+        <td align="right">9</td>
+        <td align="left">Pamphila Took-Took</td>
+        <td align="left">PamphilaTook-Took@dayrep.com</td>
+        <td align="left">940-393-5683</td>
+        <td align="left">7/21/1967</td>
+      </tr>
+      <tr valign="top">
+        <td align="right">25</td>
+        <td align="left">Fredegar Took-Took</td>
+        <td align="left">FredegarTook-Took@jourrapide.com</td>
+        <td align="left">203-202-7040</td>
+        <td align="left">11/28/1975</td>
+      </tr>
+      <tr valign="top">
+        <td align="right">33</td>
+        <td align="left">Pandora Took</td>
+        <td align="left">PandoraTook@einrot.com</td>
+        <td align="left">915-779-9310</td>
+        <td align="left">7/6/1970</td>
+      </tr>
+      <tr valign="top">
+        <td align="right">53</td>
+        <td align="left">Hal Took-Brandybuck</td>
+        <td align="left">HalTook-Brandybuck@jourrapide.com</td>
+        <td align="left">980-555-8446</td>
+        <td align="left">9/26/1960</td>
+      </tr>
+      <tr valign="top">
+        <td align="right">65</td>
+        <td align="left">Marigold Took</td>
+        <td align="left">MarigoldTook@teleworm.us</td>
+        <td align="left">863-286-3266</td>
+        <td align="left">4/6/1966</td>
+      </tr>
+      <tr valign="top">
+        <td align="right">85</td>
+        <td align="left">Bingo Took-Took</td>
+        <td align="left">BingoTook-Took@einrot.com</td>
+        <td align="left">901-743-5853</td>
+        <td align="left">2/17/1991</td>
+      </tr>
+    </table>
+    <p>(6 lignes)<br /></p>
+  </body>
+</html>

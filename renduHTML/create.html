@@ -1,0 +1,373 @@
+<h3>\dt</h3>
+<table border="1">
+  <caption>
+    Liste des relations
+  </caption>
+  <tr>
+    <th align="center">Sch�ma</th>
+    <th align="center">Nom</th>
+    <th align="center">Type</th>
+    <th align="center">Propri�taire</th>
+  </tr>
+  <tr valign="top">
+    <td align="left">public</td>
+    <td align="left">accountuser</td>
+    <td align="left">table</td>
+    <td align="left">postgres</td>
+  </tr>
+  <tr valign="top">
+    <td align="left">public</td>
+    <td align="left">follower</td>
+    <td align="left">table</td>
+    <td align="left">postgres</td>
+  </tr>
+  <tr valign="top">
+    <td align="left">public</td>
+    <td align="left">post</td>
+    <td align="left">table</td>
+    <td align="left">postgres</td>
+  </tr>
+  <tr valign="top">
+    <td align="left">public</td>
+    <td align="left">reaction</td>
+    <td align="left">table</td>
+    <td align="left">postgres</td>
+  </tr>
+  <tr valign="top">
+    <td align="left">public</td>
+    <td align="left">reactpostuser</td>
+    <td align="left">table</td>
+    <td align="left">postgres</td>
+  </tr>
+  <tr valign="top">
+    <td align="left">public</td>
+    <td align="left">role</td>
+    <td align="left">table</td>
+    <td align="left">postgres</td>
+  </tr>
+  <tr valign="top">
+    <td align="left">public</td>
+    <td align="left">rolegroup</td>
+    <td align="left">table</td>
+    <td align="left">postgres</td>
+  </tr>
+</table>
+<p>(7 lignes)<br /></p>
+<h3>\d accountUser</h3>
+<table border="1">
+  <caption>
+    Table � public.accountuser �
+  </caption>
+  <tr>
+    <th align="center">Colonne</th>
+    <th align="center">Type</th>
+    <th align="center">Collationnement</th>
+    <th align="center">NULL-able</th>
+    <th align="center">Par d�faut</th>
+  </tr>
+  <tr valign="top">
+    <td align="left">id</td>
+    <td align="left">integer</td>
+    <td align="left">&nbsp;</td>
+    <td align="left">not null</td>
+    <td align="left">generated always as identity</td>
+  </tr>
+  <tr valign="top">
+    <td align="left">name</td>
+    <td align="left">character varying(50)</td>
+    <td align="left">&nbsp;</td>
+    <td align="left">not null</td>
+    <td align="left">&nbsp;</td>
+  </tr>
+  <tr valign="top">
+    <td align="left">email</td>
+    <td align="left">character varying(100)</td>
+    <td align="left">&nbsp;</td>
+    <td align="left">not null</td>
+    <td align="left">&nbsp;</td>
+  </tr>
+  <tr valign="top">
+    <td align="left">phone</td>
+    <td align="left">character varying(15)</td>
+    <td align="left">&nbsp;</td>
+    <td align="left">&nbsp;</td>
+    <td align="left">&nbsp;</td>
+  </tr>
+  <tr valign="top">
+    <td align="left">birth</td>
+    <td align="left">character varying(10)</td>
+    <td align="left">&nbsp;</td>
+    <td align="left">&nbsp;</td>
+    <td align="left">&nbsp;</td>
+  </tr>
+</table>
+<p>
+  Index :<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&quot;user_pkey&quot; PRIMARY KEY, btree (id)<br />
+  R�f�renc� par :<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;TABLE &quot;reactpostuser&quot; CONSTRAINT
+  &quot;fk_accountuser&quot; FOREIGN KEY (accountuser_id) REFERENCES
+  accountuser(id) ON DELETE CASCADE<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;TABLE &quot;rolegroup&quot; CONSTRAINT
+  &quot;fk_accountuser&quot; FOREIGN KEY (accountuser_id) REFERENCES
+  accountuser(id) ON DELETE CASCADE<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;TABLE &quot;follower&quot; CONSTRAINT
+  &quot;fk_followed_id&quot; FOREIGN KEY (followed_id) REFERENCES
+  accountuser(id) ON DELETE CASCADE<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;TABLE &quot;follower&quot; CONSTRAINT
+  &quot;fk_follower_id&quot; FOREIGN KEY (follower_id) REFERENCES
+  accountuser(id) ON DELETE CASCADE<br />
+</p>
+<h3>\d post</h3>
+<table border="1">
+  <caption>
+    Table � public.post �
+  </caption>
+  <tr>
+    <th align="center">Colonne</th>
+    <th align="center">Type</th>
+    <th align="center">Collationnement</th>
+    <th align="center">NULL-able</th>
+    <th align="center">Par d�faut</th>
+  </tr>
+  <tr valign="top">
+    <td align="left">id</td>
+    <td align="left">integer</td>
+    <td align="left">&nbsp;</td>
+    <td align="left">not null</td>
+    <td align="left">generated always as identity</td>
+  </tr>
+  <tr valign="top">
+    <td align="left">description</td>
+    <td align="left">text</td>
+    <td align="left">&nbsp;</td>
+    <td align="left">not null</td>
+    <td align="left">&nbsp;</td>
+  </tr>
+  <tr valign="top">
+    <td align="left">image</td>
+    <td align="left">character varying(150)</td>
+    <td align="left">&nbsp;</td>
+    <td align="left">&nbsp;</td>
+    <td align="left">&nbsp;</td>
+  </tr>
+  <tr valign="top">
+    <td align="left">date</td>
+    <td align="left">timestamp without time zone</td>
+    <td align="left">&nbsp;</td>
+    <td align="left">&nbsp;</td>
+    <td align="left">&nbsp;</td>
+  </tr>
+  <tr valign="top">
+    <td align="left">accountuser_id</td>
+    <td align="left">integer</td>
+    <td align="left">&nbsp;</td>
+    <td align="left">not null</td>
+    <td align="left">&nbsp;</td>
+  </tr>
+  <tr valign="top">
+    <td align="left">parent_id</td>
+    <td align="left">integer</td>
+    <td align="left">&nbsp;</td>
+    <td align="left">&nbsp;</td>
+    <td align="left">&nbsp;</td>
+  </tr>
+</table>
+<p>
+  Index :<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&quot;post_pkey&quot; PRIMARY KEY, btree (id)<br />
+  Contraintes de cl�s �trang�res :<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&quot;fk_accountuser&quot; FOREIGN KEY (parent_id)
+  REFERENCES post(id) ON DELETE CASCADE<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&quot;fk_parent&quot; FOREIGN KEY (parent_id)
+  REFERENCES post(id) ON DELETE CASCADE<br />
+  R�f�renc� par :<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;TABLE &quot;post&quot; CONSTRAINT
+  &quot;fk_accountuser&quot; FOREIGN KEY (parent_id) REFERENCES post(id) ON
+  DELETE CASCADE<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;TABLE &quot;post&quot; CONSTRAINT
+  &quot;fk_parent&quot; FOREIGN KEY (parent_id) REFERENCES post(id) ON DELETE
+  CASCADE<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;TABLE &quot;reactpostuser&quot; CONSTRAINT
+  &quot;fk_post&quot; FOREIGN KEY (post_id) REFERENCES post(id) ON DELETE
+  CASCADE<br />
+</p>
+<h3>\d reaction</h3>
+<table border="1">
+  <caption>
+    Table � public.reaction �
+  </caption>
+  <tr>
+    <th align="center">Colonne</th>
+    <th align="center">Type</th>
+    <th align="center">Collationnement</th>
+    <th align="center">NULL-able</th>
+    <th align="center">Par d�faut</th>
+  </tr>
+  <tr valign="top">
+    <td align="left">id</td>
+    <td align="left">integer</td>
+    <td align="left">&nbsp;</td>
+    <td align="left">not null</td>
+    <td align="left">generated always as identity</td>
+  </tr>
+  <tr valign="top">
+    <td align="left">type</td>
+    <td align="left">character varying(50)</td>
+    <td align="left">&nbsp;</td>
+    <td align="left">not null</td>
+    <td align="left">&nbsp;</td>
+  </tr>
+</table>
+<p>
+  Index :<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&quot;reaction_pkey&quot; PRIMARY KEY, btree (id)<br />
+  R�f�renc� par :<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;TABLE &quot;reactpostuser&quot; CONSTRAINT
+  &quot;fk_reaction&quot; FOREIGN KEY (reaction_id) REFERENCES reaction(id) ON
+  DELETE CASCADE<br />
+</p>
+<h3>\d reactPostUser</h3>
+<table border="1">
+  <caption>
+    Table � public.reactpostuser �
+  </caption>
+  <tr>
+    <th align="center">Colonne</th>
+    <th align="center">Type</th>
+    <th align="center">Collationnement</th>
+    <th align="center">NULL-able</th>
+    <th align="center">Par d�faut</th>
+  </tr>
+  <tr valign="top">
+    <td align="left">reaction_id</td>
+    <td align="left">integer</td>
+    <td align="left">&nbsp;</td>
+    <td align="left">not null</td>
+    <td align="left">&nbsp;</td>
+  </tr>
+  <tr valign="top">
+    <td align="left">post_id</td>
+    <td align="left">integer</td>
+    <td align="left">&nbsp;</td>
+    <td align="left">not null</td>
+    <td align="left">&nbsp;</td>
+  </tr>
+  <tr valign="top">
+    <td align="left">accountuser_id</td>
+    <td align="left">integer</td>
+    <td align="left">&nbsp;</td>
+    <td align="left">not null</td>
+    <td align="left">&nbsp;</td>
+  </tr>
+</table>
+<p>
+  Contraintes de cl�s �trang�res :<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&quot;fk_accountuser&quot; FOREIGN KEY
+  (accountuser_id) REFERENCES accountuser(id) ON DELETE CASCADE<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&quot;fk_post&quot; FOREIGN KEY (post_id) REFERENCES
+  post(id) ON DELETE CASCADE<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&quot;fk_reaction&quot; FOREIGN KEY (reaction_id)
+  REFERENCES reaction(id) ON DELETE CASCADE<br />
+</p>
+<h3>\d follower</h3>
+<table border="1">
+  <caption>
+    Table � public.follower �
+  </caption>
+  <tr>
+    <th align="center">Colonne</th>
+    <th align="center">Type</th>
+    <th align="center">Collationnement</th>
+    <th align="center">NULL-able</th>
+    <th align="center">Par d�faut</th>
+  </tr>
+  <tr valign="top">
+    <td align="left">follower_id</td>
+    <td align="left">integer</td>
+    <td align="left">&nbsp;</td>
+    <td align="left">not null</td>
+    <td align="left">&nbsp;</td>
+  </tr>
+  <tr valign="top">
+    <td align="left">followed_id</td>
+    <td align="left">integer</td>
+    <td align="left">&nbsp;</td>
+    <td align="left">not null</td>
+    <td align="left">&nbsp;</td>
+  </tr>
+</table>
+<p>
+  Index :<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&quot;follower_pkey&quot; PRIMARY KEY, btree
+</p>
+
+<h3>\d role</h3>
+<table border="1">
+  <caption>
+    Table � public.role �
+  </caption>
+  <tr>
+    <th align="center">Colonne</th>
+    <th align="center">Type</th>
+    <th align="center">Collationnement</th>
+    <th align="center">NULL-able</th>
+    <th align="center">Par d�faut</th>
+  </tr>
+  <tr valign="top">
+    <td align="left">id</td>
+    <td align="left">integer</td>
+    <td align="left">&nbsp;</td>
+    <td align="left">not null</td>
+    <td align="left">nextval('role_id_seq'::regclass)</td>
+  </tr>
+  <tr valign="top">
+    <td align="left">type</td>
+    <td align="left">character varying(20)</td>
+    <td align="left">&nbsp;</td>
+    <td align="left">&nbsp;</td>
+    <td align="left">&nbsp;</td>
+  </tr>
+</table>
+<p>
+  Index :<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&quot;role_pkey&quot; PRIMARY KEY, btree (id)<br />
+  R�f�renc� par :<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;TABLE &quot;rolegroup&quot; CONSTRAINT
+  &quot;fk_role&quot; FOREIGN KEY (role_id) REFERENCES role(id) ON DELETE
+  CASCADE<br />
+</p>
+<h3>\d roleGroup</h3>
+<table border="1">
+  <caption>
+    Table � public.rolegroup �
+  </caption>
+  <tr>
+    <th align="center">Colonne</th>
+    <th align="center">Type</th>
+    <th align="center">Collationnement</th>
+    <th align="center">NULL-able</th>
+    <th align="center">Par d�faut</th>
+  </tr>
+  <tr valign="top">
+    <td align="left">accountuser_id</td>
+    <td align="left">integer</td>
+    <td align="left">&nbsp;</td>
+    <td align="left">not null</td>
+    <td align="left">&nbsp;</td>
+  </tr>
+  <tr valign="top">
+    <td align="left">role_id</td>
+    <td align="left">integer</td>
+    <td align="left">&nbsp;</td>
+    <td align="left">not null</td>
+    <td align="left">&nbsp;</td>
+  </tr>
+</table>
+<p>
+  Contraintes de cl�s �trang�res :<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&quot;fk_accountuser&quot; FOREIGN KEY
+  (accountuser_id) REFERENCES accountuser(id) ON DELETE CASCADE<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&quot;fk_role&quot; FOREIGN KEY (role_id) REFERENCES
+  role(id) ON DELETE CASCADE<br />
+</p>

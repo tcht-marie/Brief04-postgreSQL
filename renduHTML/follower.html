@@ -1,0 +1,94 @@
+<h3>
+  SELECT f.follower_id, f.followed_id, au.name AS follower_name, au.name AS
+  followed_name
+</h3>
+<h3>FROM follower f</h3>
+<h3>JOIN accountUser au ON f.follower_id = au.id</h3>
+<h3>JOIN accountUser accu ON f.followed_id = accu.id;</h3>
+<table border="1">
+  <tr>
+    <th align="center">follower_id</th>
+    <th align="center">followed_id</th>
+    <th align="center">follower_name</th>
+    <th align="center">followed_name</th>
+  </tr>
+  <tr valign="top">
+    <td align="right">1</td>
+    <td align="right">33</td>
+    <td align="left">Frodon Sacquet</td>
+    <td align="left">Frodon Sacquet</td>
+  </tr>
+  <tr valign="top">
+    <td align="right">1</td>
+    <td align="right">66</td>
+    <td align="left">Frodon Sacquet</td>
+    <td align="left">Frodon Sacquet</td>
+  </tr>
+  <tr valign="top">
+    <td align="right">66</td>
+    <td align="right">1</td>
+    <td align="left">Belinda Galbassi</td>
+    <td align="left">Belinda Galbassi</td>
+  </tr>
+  <tr valign="top">
+    <td align="right">13</td>
+    <td align="right">59</td>
+    <td align="left">Grimalda Brandagamba</td>
+    <td align="left">Grimalda Brandagamba</td>
+  </tr>
+  <tr valign="top">
+    <td align="right">56</td>
+    <td align="right">48</td>
+    <td align="left">Primrose Smallburrow</td>
+    <td align="left">Primrose Smallburrow</td>
+  </tr>
+  <tr valign="top">
+    <td align="right">99</td>
+    <td align="right">14</td>
+    <td align="left">Hamfast Brandybuck</td>
+    <td align="left">Hamfast Brandybuck</td>
+  </tr>
+  <tr valign="top">
+    <td align="right">78</td>
+    <td align="right">34</td>
+    <td align="left">Fastred Fairbairn</td>
+    <td align="left">Fastred Fairbairn</td>
+  </tr>
+  <tr valign="top">
+    <td align="right">98</td>
+    <td align="right">22</td>
+    <td align="left">Rudigar Sandheaver</td>
+    <td align="left">Rudigar Sandheaver</td>
+  </tr>
+  <tr valign="top">
+    <td align="right">46</td>
+    <td align="right">93</td>
+    <td align="left">Mimosa Rumble</td>
+    <td align="left">Mimosa Rumble</td>
+  </tr>
+  <tr valign="top">
+    <td align="right">7</td>
+    <td align="right">9</td>
+    <td align="left">Savanna Galbassi</td>
+    <td align="left">Savanna Galbassi</td>
+  </tr>
+  <tr valign="top">
+    <td align="right">65</td>
+    <td align="right">23</td>
+    <td align="left">Marigold Took</td>
+    <td align="left">Marigold Took</td>
+  </tr>
+  <tr valign="top">
+    <td align="right">15</td>
+    <td align="right">44</td>
+    <td align="left">Moro Gammidge</td>
+    <td align="left">Moro Gammidge</td>
+  </tr>
+  <tr valign="top">
+    <td align="right">30</td>
+    <td align="right">50</td>
+    <td align="left">Cerdic Goodchild</td>
+    <td align="left">Cerdic Goodchild</td>
+  </tr>
+</table>
+<p>(13 lignes)<br /></p>

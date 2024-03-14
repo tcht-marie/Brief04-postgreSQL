@@ -1,0 +1,97 @@
+<h3>SELECT * FROM roleGroup;</h3>
+<table border="1">
+  <tr>
+    <th align="center">accountuser_id</th>
+    <th align="center">role_id</th>
+  </tr>
+  <tr valign="top">
+    <td align="right">1</td>
+    <td align="right">1</td>
+  </tr>
+  <tr valign="top">
+    <td align="right">5</td>
+    <td align="right">2</td>
+  </tr>
+  <tr valign="top">
+    <td align="right">88</td>
+    <td align="right">5</td>
+  </tr>
+  <tr valign="top">
+    <td align="right">33</td>
+    <td align="right">4</td>
+  </tr>
+  <tr valign="top">
+    <td align="right">32</td>
+    <td align="right">3</td>
+  </tr>
+  <tr valign="top">
+    <td align="right">99</td>
+    <td align="right">5</td>
+  </tr>
+  <tr valign="top">
+    <td align="right">13</td>
+    <td align="right">1</td>
+  </tr>
+</table>
+<p>(7 lignes)<br /></p>
+<h3>
+  SELECT rg.*,<br />
+  au.name,<br />
+  r.type<br />
+  FROM roleGroup rg<br />
+  JOIN accountUser au<br />
+  ON au.id = rg.accountUser_id<br />
+  JOIN role r<br />
+  ON r.id = rg.role_id;
+</h3>
+<table border="1">
+  <tr>
+    <th align="center">accountuser_id</th>
+    <th align="center">role_id</th>
+    <th align="center">name</th>
+    <th align="center">type</th>
+  </tr>
+  <tr valign="top">
+    <td align="right">1</td>
+    <td align="right">1</td>
+    <td align="left">Frodon Sacquet</td>
+    <td align="left">Super Utilisateur</td>
+  </tr>
+  <tr valign="top">
+    <td align="right">5</td>
+    <td align="right">2</td>
+    <td align="left">Gorbadoc Burrows</td>
+    <td align="left">Administrateur</td>
+  </tr>
+  <tr valign="top">
+    <td align="right">88</td>
+    <td align="right">5</td>
+    <td align="left">Caramella Sackville-Baggins</td>
+    <td align="left">Visiteur</td>
+  </tr>
+  <tr valign="top">
+    <td align="right">33</td>
+    <td align="right">4</td>
+    <td align="left">Pandora Took</td>
+    <td align="left">Editeur</td>
+  </tr>
+  <tr valign="top">
+    <td align="right">32</td>
+    <td align="right">3</td>
+    <td align="left">Dinodas Goodchild</td>
+    <td align="left">Mod�rateur</td>
+  </tr>
+  <tr valign="top">
+    <td align="right">99</td>
+    <td align="right">5</td>
+    <td align="left">Hamfast Brandybuck</td>
+    <td align="left">Visiteur</td>
+  </tr>
+  <tr valign="top">
+    <td align="right">13</td>
+    <td align="right">1</td>
+    <td align="left">Grimalda Brandagamba</td>
+    <td align="left">Super Utilisateur</td>
+  </tr>
+</table>
+<p>(7 lignes)<br /></p>
