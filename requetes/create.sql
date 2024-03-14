@@ -103,8 +103,10 @@ CREATE TABLE role (
 CREATE TABLE roleGroup (
     accountUser_id INT NOT NULL,
     role_id INT NOT NULL,
+    groupUser_id INT,
     CONSTRAINT fk_accountUser FOREIGN KEY(accountUser_id) REFERENCES accountUser(id) ON DELETE CASCADE,
-    CONSTRAINT fk_role FOREIGN KEY(role_id) REFERENCES role(id) ON DELETE CASCADE
+    CONSTRAINT fk_role FOREIGN KEY(role_id) REFERENCES role(id) ON DELETE CASCADE,
+    CONSTRAINT fk_groupUser FOREIGN KEY(groupUser_id) REFERENCES groupUser(id) ON DELETE CASCADE
 );
 ----------------------------
 CREATE TABLE image_formats (
@@ -115,3 +117,14 @@ CREATE TABLE image_formats (
 ALTER TABLE post
 ADD COLUMN image_formats_id INT,
     ADD CONSTRAINT fk_image_formats FOREIGN KEY (image_formats_id) REFERENCES image_formats(id);
+----------------------------
+CREATE TABLE groupUser (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(50)
+);
+-- id |           name
+-- ----+--------------------------
+--   1 | Les hobbits en vacances
+--   2 | Les pouvoirs de l anneau
+--   3 | Golum
+-- (3 lignes)
