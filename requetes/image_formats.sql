@@ -5,10 +5,10 @@ VALUES ('URL'),
 ----------------------------
 SELECT *
 FROM image_formats;
---  id | format_name | description
--- ----+-------------+-------------
---   1 | URL         |
---   2 | JPEG        |
---   3 | GIF         |
+--  id | format_name 
+-- ----+-------------
+--   1 | URL         
+--   2 | JPEG        
+--   3 | GIF         
 -- (3 lignes)
 ----------------------------
