@@ -32,9 +32,17 @@ FROM roleGroup rg
 --              99 |       5 |            1 | Hamfast Brandybuck          | Visiteur          | Les hobbits en vacances
 --              13 |       1 |            3 | Grimalda Brandagamba        | Super Utilisateur | Golum
 -- (7 lignes)
-SELECT COUNT(accountUser_id),
+--------------------------------------------------------------------------------------------------------------------
+----- Affiche le nombre d'users par groupe -----
+--------------------------------------------------------------------------------------------------------------------
+SELECT COUNT(rg.accountUser_id),
     gu.name AS nameGroup
 FROM roleGroup rg
-    JOIN groupUser gu ON gu.id = rg.accountUser_id
-GROUP BY rg.accountUser_id,
-    gu.name;
+    JOIN groupUser gu ON gu.id = rg.groupUser_id
+GROUP BY gu.name;
+--  count |        namegroup
+-- -------+--------------------------
+--      3 | Les hobbits en vacances
+--      2 | Golum
+--      2 | Les pouvoirs de l anneau
+-- (3 lignes)
